@@ -1,8 +1,21 @@
+"use client";
+import { useContext } from "react";
+import { RoleContext } from "@/lib/providers/RoleProvider";
 
-export const Content = () => {
+type ContentProps = {
+  backend: React.ReactNode;
+  fullstack: React.ReactNode;
+  frontend: React.ReactNode;
+};
+
+export const Content = ({ backend, fullstack, frontend }: ContentProps) => {
+  const { role } = useContext(RoleContext);
+
   return (
     <div>
-      Content component
+      {role === "full-stack" && fullstack}
+      {role === "back-end" && backend}
+      {role === "front-end" && frontend}
     </div>
   );
 };

@@ -7,7 +7,15 @@ export const RoleSelector = () => {
   const { role, setRole } = useContext(RoleContext);
 
   return (
-    <ToggleGroup type="single" defaultValue="full-stack" onValueChange={(value) => setRole(value)}>
+    <ToggleGroup
+      type="single"
+      value={role}
+      defaultValue="full-stack"
+      onValueChange={(value) => {
+        if (value === "") return;
+        setRole(value);
+      }}
+    >
       <ToggleGroupItem value="back-end">Back-end</ToggleGroupItem>
       <ToggleGroupItem value="full-stack">Full-Stack</ToggleGroupItem>
       <ToggleGroupItem value="front-end">Front-end</ToggleGroupItem>
