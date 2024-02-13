@@ -14,7 +14,7 @@ import BarChart from "./CurvedBarChart";
 
 export function SampleDashboard() {
   return (
-    <div className="flex min-h-screen w-full">
+    <div className="flex max-h-80 overflow-scroll w-full">
       <div className="hidden border-r bg-gray-100/40 dark:bg-gray-800/40 lg:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4">
