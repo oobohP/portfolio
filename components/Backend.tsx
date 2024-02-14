@@ -3,7 +3,7 @@ import { BackendContainer } from "./BackendContainer";
 
 export const Backend = () => {
   return (
-    <div className="ml-2">
+    <div className="ml-2 mr-2">
       <BackendContainer header="Databases">
         Knowledge in building scaleable applications utilizing Relational and Non Relational
         databases. Including cloud based solutions such as AWS, Google Cloud, and Azure.
