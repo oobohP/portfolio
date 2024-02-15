@@ -12,6 +12,16 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { PortfolioHero } from "./PortfolioHero/PortfolioHero";
+import { PortfolioList } from "./PortfolioHero/PortfolioList";
+
 export const Frontend = () => {
   return (
     <div>
@@ -46,14 +56,18 @@ export const Frontend = () => {
               </DialogContent>
             </Dialog>
 
-            <DashboardCard header="Frameworks & Libraries">
-              This list is ever-growing. I am always learning new things.
-            </DashboardCard>
-
-            <DashboardCard header="E-Commerce and SEO">
-              Your currently using something that was optimized SEO.
+            <DashboardCard header="E-Commerce Portfolio">
+              Just like this portfolio, optimized for performance and SEO.
             </DashboardCard>
           </div>
+
+          <Carousel className="container">
+            <CarouselContent>
+              {PortfolioList.map((portfolioItem, index) => {
+                return <CarouselItem key={index}>{portfolioItem}</CarouselItem>;
+              })}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
     </div>

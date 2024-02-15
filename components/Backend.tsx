@@ -4,6 +4,10 @@ import { BackendContainer } from "./BackendContainer";
 export const Backend = () => {
   return (
     <div className="ml-2 mr-2">
+      <h1 className="font-mono font-light">
+        * This page is displayed like this on purpose, to portray the simplistic and staightforward
+        nature of backend development
+      </h1>
       <BackendContainer header="Databases">
         Knowledge in building scaleable applications utilizing Relational and Non Relational
         databases. Including cloud based solutions such as AWS, Google Cloud, and Azure.
@@ -51,7 +55,8 @@ export const Backend = () => {
         Experienced in building applications on cloud infrastructure such as AWS, Google Cloud, and
         Azure.
         <br />
-        Having built serverless architecture, CI/CD Pipelines, containerization, and splitting of monolith services into microservices.
+        Having built serverless architecture, CI/CD Pipelines, containerization, and splitting of
+        monolith services into microservices.
       </BackendContainer>
     </div>
   );
