@@ -26,7 +26,7 @@ export const Frontend = () => {
     <div>
       <div className="flex h-screen flex-col">
         <div className="flex-1 bg-gray-100 p-4 dark:bg-gray-800">
-          <div className="container items-start gap-4 p-4 md:grid-cols-2 lg:gap-6 xl:grid-cols-3 md:grid lg:flex justify-between">
+          <div className="container items-start justify-between gap-4 p-4 md:grid md:grid-cols-2 lg:flex lg:gap-6 xl:grid-cols-3">
             <FrontendDrawer
               trigger={
                 <DashboardCard header="Responsive Dashboards" className="animate-slight-bounce">
@@ -57,6 +57,10 @@ export const Frontend = () => {
           </div>
 
           <Carousel className="container">
+            <h1 className="my-4 rounded-md bg-gradient-to-r from-gray-200 via-gray-300 to-gray-500 py-2 text-center text-2xl font-semibold text-gray-800 shadow-md">
+              Development Portfolio
+            </h1>
+
             <CarouselPrevious />
             <CarouselContent>
               {PortfolioList.map((portfolioItem, index) => {

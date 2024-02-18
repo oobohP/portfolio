@@ -4,12 +4,14 @@ import { ReactNode } from 'react';
 interface PortfolioHeroProps {
   header?: string;
   description?: string;
+  link?: string;
   children?: ReactNode;
 }
 
-export function PortfolioHero({ header, description, children }: PortfolioHeroProps) {
+export function PortfolioHero({ header, description, link, children }: PortfolioHeroProps) {
   return (
     <section className="mt-6 w-full">
+      <a target='_blank' href={link ? link : '#'}>
       <div className="container space-y-10 xl:space-y-16">
         <div className="grid gap-4 px-10 md:grid-cols-2 md:gap-16">
           <div>
@@ -36,6 +38,7 @@ export function PortfolioHero({ header, description, children }: PortfolioHeroPr
           />
         )}
       </div>
+      </a>
     </section>
   );
 }

@@ -1,8 +1,9 @@
 import { Backend } from "@/components/Backend";
 import { Content } from "@/components/Content";
 import { Frontend } from "@/components/Frontend";
-import { Fullstack } from "@/components/Fullstack";
 import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
       <Header />
       <Content
         backend={<Backend />}
-        fullstack={<Fullstack />}
+        fullstack={<Hero />}
         frontend={<Frontend />}
       />
     </main>

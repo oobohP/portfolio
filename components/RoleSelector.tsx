@@ -17,7 +17,7 @@ export const RoleSelector = () => {
       }}
     >
       <ToggleGroupItem value="back-end">Back-end</ToggleGroupItem>
-      <ToggleGroupItem value="full-stack">Full-stack</ToggleGroupItem>
+      <ToggleGroupItem value="full-stack">About Me</ToggleGroupItem>
       <ToggleGroupItem value="front-end">Front-end</ToggleGroupItem>
     </ToggleGroup>
   );
