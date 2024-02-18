@@ -1,7 +1,7 @@
+import { BackendContainer } from "@/components/BackendContainer";
 import Link from "next/link";
-import { BackendContainer } from "./BackendContainer";
 
-export const Backend = () => {
+const Page = () => {
   return (
     <div className="ml-2 mr-2">
       <h1 className="font-mono font-light">
@@ -59,5 +59,7 @@ export const Backend = () => {
         monolith services into microservices.
       </BackendContainer>
     </div>
-  );
-};
+  )
+}
+
+export default Page

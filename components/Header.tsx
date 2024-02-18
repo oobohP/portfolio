@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { RoleSelector } from "./RoleSelector";
 
 export const Header = async () => {
   return (
@@ -7,7 +6,6 @@ export const Header = async () => {
       <Link href="/" className="flex space-x-2">
         <h1 className="ml-1 text-lg font-bold tracking-tight sm:text-2xl hover:opacity-80">Steven Ly's Developer Portfolio</h1>
       </Link>
-      <RoleSelector />
     </header>
   );
 };

@@ -1,7 +1,3 @@
-import { DashboardCard } from "./SampleDashboard/DashboardCard";
-import { SampleDashboard } from "./SampleDashboard/SampleDashboard";
-import { FrontendDrawer } from "./FrontendDrawer";
-import { SampleForm } from "./SampleForm/SampleForm";
 
 import {
   Dialog,
@@ -19,9 +15,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { PortfolioList } from "./PortfolioHero/PortfolioList";
+import { FrontendDrawer } from "@/components/FrontendDrawer";
+import { DashboardCard } from "@/components/SampleDashboard/DashboardCard";
+import { SampleDashboard } from "@/components/SampleDashboard/SampleDashboard";
+import { SampleForm } from "@/components/SampleForm/SampleForm";
+import { PortfolioList } from "@/components/PortfolioHero/PortfolioList";
 
-export const Frontend = () => {
+
+const Page = () => {
   return (
     <div>
       <div className="flex h-screen flex-col">
@@ -74,3 +75,5 @@ export const Frontend = () => {
     </div>
   );
 };
+
+export default Page;

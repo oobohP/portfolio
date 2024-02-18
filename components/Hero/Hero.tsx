@@ -1,5 +1,5 @@
 import { Socials } from "./Socials";
-import { HeroSelector } from "./HeroSelector";
+import { HeroButtons } from "./HeroButtons";
 
 export function Hero() {
   return (
@@ -21,7 +21,7 @@ export function Hero() {
           </p>
         </div>
         <div className="space-x-4">
-          <HeroSelector />
+          <HeroButtons />
         </div>
         <Socials />
       </div>
