@@ -2,8 +2,7 @@ import { Backend } from "@/components/Backend";
 import { Content } from "@/components/Content";
 import { Frontend } from "@/components/Frontend";
 import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-
+import { Hero } from "@/components/Hero/Hero";
 
 export default function Home() {
   return (
