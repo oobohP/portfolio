@@ -4,7 +4,7 @@ import { BackendContainer } from "@/components/BackendContainer";
 const Page = () => {
   return (
     <div className="ml-2 mr-2">
-      <h1 className="font-mono font-light mt-2">
+      <h1 className="mt-2 font-mono font-light">
         * This page is displayed like this on purpose, to portray the simplistic and staightforward
         nature of backend development
       </h1>
@@ -20,9 +20,12 @@ const Page = () => {
         Experienced in leading architecture, design, implementation and scaling of RESTful API
         services with languages such as Node.js, Python, Golang, Java, and Ruby on Rails
         <br />
-        Implementing strategies such as caching, rate limiting, and pagination. The last thing that
-        I worked on is migrating from an ORM to a SQL query builder to optimize the performance of
-        the API.
+        Implementing strategies such as{" "}
+        <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text font-medium text-transparent">
+          caching, rate limiting, and pagination.
+        </span>{" "}
+        The last thing that I worked on is migrating from an ORM to a SQL query builder to optimize
+        the performance of the API.
       </BackendContainer>
 
       <BackendContainer header="Third Party Integrations">
