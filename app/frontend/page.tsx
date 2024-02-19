@@ -39,14 +39,14 @@ const Page = () => {
             <Dialog>
               <DialogTrigger asChild>
                 <DashboardCard header="Forms">
-                  This deserves its own card, it's just that complex.
+                  This deserves its own card, it is just that complex.
                 </DashboardCard>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
                   <DialogTitle>Forms are complicated</DialogTitle>
                   <DialogDescription>
-                    I make it so it doesn't have to be. <br />
+                    I make it so it does not have to be. <br />
                     With my experience in simplifying user workflows. The less forms we use the
                     better, for everyone.
                   </DialogDescription>

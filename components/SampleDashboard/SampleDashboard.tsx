@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,10 +10,11 @@ import LineChartIcon from "../svg/LineChartIcon";
 import UsersIcon from "../svg/UsersIcon";
 import CurvedLineChart from "./CurvedLineChart";
 import BarChart from "./CurvedBarChart";
+import Image from "next/image";
 
 export function SampleDashboard() {
   return (
-    <div className="flex max-h-80 overflow-scroll w-full">
+    <div className="flex max-h-80 w-full overflow-scroll">
       <div className="hidden border-r bg-gray-100/40 dark:bg-gray-800/40 lg:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4">
@@ -79,16 +79,12 @@ export function SampleDashboard() {
             size="icon"
             variant="ghost"
           >
-            <img
-              alt="Avatar"
+            <Image
+              alt="avatar"
               className="rounded-full"
-              height="32"
+              height={32}
+              width={32}
               src="/placeholder.svg"
-              style={{
-                aspectRatio: "32/32",
-                objectFit: "cover",
-              }}
-              width="32"
             />
             <span className="sr-only">Toggle user menu</span>
           </Button>
@@ -97,7 +93,7 @@ export function SampleDashboard() {
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Today's Revenue</CardTitle>
+                <CardTitle>Today&apos;s Revenue</CardTitle>
                 <CardDescription>Total revenue generated today</CardDescription>
               </CardHeader>
               <CardContent>
@@ -112,7 +108,7 @@ export function SampleDashboard() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Today's Orders</CardTitle>
+                <CardTitle>Today&apos;s Orders</CardTitle>
                 <CardDescription>Total orders received today</CardDescription>
               </CardHeader>
               <CardContent>
@@ -136,16 +132,12 @@ export function SampleDashboard() {
             <CardContent>
               <div className="grid gap-4">
                 <div className="flex items-center gap-4">
-                  <img
-                    alt="Avatar"
+                  <Image
+                    alt="avatar"
                     className="rounded-full object-cover"
-                    height="40"
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "40/40",
-                      objectFit: "cover",
-                    }}
-                    width="40"
+                    height={40}
+                    width={40}
+                    src="placeholder.svg"
                   />
                   <div className="grid gap-1.5">
                     <h3 className="text-sm font-semibold">John Doe</h3>
@@ -154,16 +146,12 @@ export function SampleDashboard() {
                   <div className="ml-auto text-sm">2m ago</div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <img
-                    alt="Avatar"
+                  <Image
+                    alt="avatar"
                     className="rounded-full object-cover"
-                    height="40"
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "40/40",
-                      objectFit: "cover",
-                    }}
-                    width="40"
+                    height={40}
+                    width={40}
+                    src="placeholder.svg"
                   />
                   <div className="grid gap-1.5">
                     <h3 className="text-sm font-semibold">Alice Johnson</h3>
@@ -172,16 +160,12 @@ export function SampleDashboard() {
                   <div className="ml-auto text-sm">5m ago</div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <img
-                    alt="Avatar"
+                  <Image
+                    alt="avatar"
                     className="rounded-full object-cover"
-                    height="40"
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "40/40",
-                      objectFit: "cover",
-                    }}
-                    width="40"
+                    height={40}
+                    width={40}
+                    src="placeholder.svg"
                   />
                   <div className="grid gap-1.5">
                     <h3 className="text-sm font-semibold">Emma Smith</h3>

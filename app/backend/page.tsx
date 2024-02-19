@@ -63,7 +63,7 @@ const Page = () => {
       </BackendContainer>
 
       <BackendContainer header="Directional Data Flow">
-        I've solved numerous applications where the data requirements were complex and different
+        I have solved numerous applications where the data requirements were complex and different
         each time
         <br />
         Having built applications requiring
