@@ -1,10 +1,10 @@
-import { BackendContainer } from "@/components/BackendContainer";
 import Link from "next/link";
+import { BackendContainer } from "@/components/BackendContainer";
 
 const Page = () => {
   return (
     <div className="ml-2 mr-2">
-      <h1 className="font-mono font-light">
+      <h1 className="font-mono font-light mt-2">
         * This page is displayed like this on purpose, to portray the simplistic and staightforward
         nature of backend development
       </h1>
@@ -58,8 +58,20 @@ const Page = () => {
         Having built serverless architecture, CI/CD Pipelines, containerization, and splitting of
         monolith services into microservices.
       </BackendContainer>
-    </div>
-  )
-}
 
-export default Page
+      <BackendContainer header="Directional Data Flow">
+        I've solved numerous applications where the data requirements were complex and different
+        each time
+        <br />
+        Having built applications requiring
+        <span className="font-semibold">
+          {" "}
+          websockets, message queues, and event driven architecture{" "}
+        </span>
+        each one with different requirements and constraints.
+      </BackendContainer>
+    </div>
+  );
+};
+
+export default Page;

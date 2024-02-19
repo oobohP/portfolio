@@ -1,3 +1,8 @@
+import { FrontendDrawer } from "@/components/FrontendDrawer";
+import { DashboardCard } from "@/components/SampleDashboard/DashboardCard";
+import { SampleDashboard } from "@/components/SampleDashboard/SampleDashboard";
+import { SampleForm } from "@/components/SampleForm/SampleForm";
+import { PortfolioList } from "@/components/PortfolioHero/PortfolioList";
 
 import {
   Dialog,
@@ -15,18 +20,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { FrontendDrawer } from "@/components/FrontendDrawer";
-import { DashboardCard } from "@/components/SampleDashboard/DashboardCard";
-import { SampleDashboard } from "@/components/SampleDashboard/SampleDashboard";
-import { SampleForm } from "@/components/SampleForm/SampleForm";
-import { PortfolioList } from "@/components/PortfolioHero/PortfolioList";
-
 
 const Page = () => {
   return (
     <div>
       <div className="flex h-screen flex-col">
-        <div className="flex-1 bg-gray-100 p-4 dark:bg-gray-800">
+        <div className="flex-1 p-4">
           <div className="container items-start justify-between gap-4 p-4 md:grid md:grid-cols-2 lg:flex lg:gap-6 xl:grid-cols-3">
             <FrontendDrawer
               trigger={
