@@ -1,4 +1,7 @@
-### Development Portfolio application built on NextJS
+## Development Portfolio application built on NextJS
+
+### This portfolio has a 100% Google Lighthouse Score
+![Lighthouse](https://github.com/oobohP/portfolio/blob/master/public/lighthouse.png?raw=true)
 
 ## Getting Started
 First, run the development server:
