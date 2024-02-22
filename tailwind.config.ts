@@ -19,7 +19,8 @@ const config = {
     },
     extend: {
       maxHeight: {
-        "80": "80vh"
+        "80": "80vh",
+        "600": "60vh"
       },
       colors: {
         border: "hsl(var(--border))",
