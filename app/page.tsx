@@ -1,11 +1,11 @@
-import { Blog } from "@/components/Blog/Blog";
+import { BlogHero } from "@/components/BlogHero/BlogHero";
 import { Hero } from "@/components/Hero/Hero";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Blog />
+      <BlogHero />
     </main>
   );
 }

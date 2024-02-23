@@ -2,7 +2,7 @@ import { BlogItem } from "./BlogItem";
 import { Post } from "@/lib/interfaces/Post";
 import { getBlogs } from "@/sanity/sanity-utils";
 
-export async function Blog() {
+export async function BlogHero() {
   const blogPosts = await getBlogs();
 
   return (

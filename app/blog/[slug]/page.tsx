@@ -14,9 +14,9 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div className="container my-10 h-screen">
-      <header className="mb-6 flex flex-col items-center justify-between md:flex-row">
+      <header className="mb-6 items-center justify-between md:flex md:flex-row">
         <h1 className="text-5xl font-extrabold drop-shadow">{blogPost.title}</h1>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 md:mt-4">
           <Image
             width={50}
             height={50}
@@ -38,9 +38,9 @@ export default async function Page({ params }: PageProps) {
         />
       </div>
 
-      <div className="flex text-lg">
+      <div className="text-lg break-words tracking-tight">
         <section>
-          <PortableText value={blogPost.body} />
+          <PortableText value={blogPost.body}/>
         </section>
       </div>
     </div>
