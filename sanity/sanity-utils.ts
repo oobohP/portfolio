@@ -14,7 +14,7 @@ const sanityClient = createClient({
 
 export const getBlogs = async (): Promise<Post[]> => {
   return sanityClient.fetch(
-    `*[_type == "post"] | order(publishedAt desc) {
+    `*[_type == "post"] | order(publishedAt desc){
       _id,
       "slug": slug.current,
       title,
@@ -22,7 +22,7 @@ export const getBlogs = async (): Promise<Post[]> => {
       body,
       publishedAt,
       "mainImage": mainImage.asset->url,
-    }[0...10]`,
+    }`,
   )
 }
 
