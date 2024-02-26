@@ -10,7 +10,7 @@ export const BlogItem = ({ title, subtitle, slug, mainImage }: Post) => {
         <CardContent className="flex items-start p-6">
           <div className="hidden flex-none sm:block">
             <Image
-              src={`${mainImage}?w=200&h=200&fit=crop`}
+              src={mainImage ? `${mainImage}?w=200&h=200&fit=crop` : 'https://placehold.co/200'}
               width="200"
               height="200"
               alt="thumbnail"

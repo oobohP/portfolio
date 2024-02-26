@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { getBlog } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
-import Image from "next/image";
+import PortableTextComponents from "@/components/Blog/PortableTextComponents";
 
 interface PageProps {
   params: {
@@ -30,7 +31,11 @@ export default async function Page({ params }: PageProps) {
 
       <div className="mb-6">
         <Image
-          src={blogPost.mainImage}
+          src={
+            blogPost.mainImage
+              ? `${blogPost.mainImage}?w=1920&h=1080&fit=crop`
+              : "https://placehold.co/1920x1080"
+          }
           alt={`${blogPost.title}'s cover image`}
           width={1920}
           height={1080}
@@ -38,9 +43,9 @@ export default async function Page({ params }: PageProps) {
         />
       </div>
 
-      <div className="text-lg break-words tracking-tight">
+      <div className="break-words text-lg tracking-tight">
         <section>
-          <PortableText value={blogPost.body}/>
+          <PortableText value={blogPost.body} components={PortableTextComponents} />
         </section>
       </div>
     </div>
