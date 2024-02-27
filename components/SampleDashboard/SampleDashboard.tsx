@@ -137,7 +137,7 @@ export function SampleDashboard() {
                     className="rounded-full object-cover"
                     height={40}
                     width={40}
-                    src="placeholder.svg"
+                    src="/placeholder.svg"
                   />
                   <div className="grid gap-1.5">
                     <h3 className="text-sm font-semibold">John Doe</h3>
@@ -151,7 +151,7 @@ export function SampleDashboard() {
                     className="rounded-full object-cover"
                     height={40}
                     width={40}
-                    src="placeholder.svg"
+                    src="/placeholder.svg"
                   />
                   <div className="grid gap-1.5">
                     <h3 className="text-sm font-semibold">Alice Johnson</h3>
@@ -165,7 +165,7 @@ export function SampleDashboard() {
                     className="rounded-full object-cover"
                     height={40}
                     width={40}
-                    src="placeholder.svg"
+                    src="/placeholder.svg"
                   />
                   <div className="grid gap-1.5">
                     <h3 className="text-sm font-semibold">Emma Smith</h3>
