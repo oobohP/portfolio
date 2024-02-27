@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { getBlog } from "@/sanity/sanity-utils";
+import { Post } from "@/lib/interfaces/Post";
+import { getBlog } from "@/sanity/sanity.query";
 import { PortableText } from "@portabletext/react";
+import { sanityFetch } from "@/sanity/sanity-utils";
 import PortableTextComponents from "@/components/Blog/PortableTextComponents";
 
 interface PageProps {
@@ -10,8 +12,11 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const slug = params.slug;
-  const blogPost = await getBlog(slug);
+  const blogPost: Post = await sanityFetch({
+    query: getBlog,
+    tags: ["post"],
+    queryParams: { slug: params.slug },
+  })
 
   return (
     <div className="container my-10 h-screen">
