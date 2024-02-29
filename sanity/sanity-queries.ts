@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-export const getBlogs = groq`*[_type == "post"] | order(publishedAt desc){
+export const getAllBlogs = groq`*[_type == "post"] | order(publishedAt desc){
   _id,
   "slug": slug.current,
   title,
@@ -8,7 +8,7 @@ export const getBlogs = groq`*[_type == "post"] | order(publishedAt desc){
   body,
   publishedAt,
   "mainImage": mainImage.asset->url,
-}`
+}`;
 
 export const getBlog = groq`*[_type == "post" && slug.current == $slug] | order(publishedAt desc) {
   _id,
@@ -18,4 +18,4 @@ export const getBlog = groq`*[_type == "post" && slug.current == $slug] | order(
   body,
   publishedAt,
   "mainImage": mainImage.asset->url,
-}[0]`
+}[0]`;

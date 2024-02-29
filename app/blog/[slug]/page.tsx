@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { sanityFetch } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
-import PortableTextComponents from "@/components/Blog/PortableTextComponents";
 import { Post } from "@/lib/interfaces/Post";
+import { PortableText } from "@portabletext/react";
+import { sanityFetch } from "@/sanity/sanity-utils";
+import PortableTextComponents from "@/components/Blog/PortableTextComponents";
 import { getBlog } from "@/sanity/sanity-queries";
 
 interface PageProps {

@@ -1,4 +1,3 @@
-import "server-only";
 import { createClient, ClientConfig, QueryParams } from 'next-sanity'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
@@ -28,3 +27,5 @@ export async function sanityFetch<QueryResponse>({
     next: { tags },
   });
 }
+
+export default sanityClient;
