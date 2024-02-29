@@ -8,7 +8,7 @@ const config: ClientConfig = {
   projectId,
   dataset,
   apiVersion,
-  useCdn: true // `false` if you want to ensure fresh data every load
+  useCdn: false // `false` if you want to ensure fresh data every load
 }
 
 const sanityClient = createClient(config)
@@ -27,5 +27,3 @@ export async function sanityFetch<QueryResponse>({
     next: { tags },
   });
 }
-
-export default sanityClient;
