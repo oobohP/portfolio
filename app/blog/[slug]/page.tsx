@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { getBlog } from "@/sanity/sanity-utils";
+import { sanityFetch } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import PortableTextComponents from "@/components/Blog/PortableTextComponents";
+import { Post } from "@/lib/interfaces/Post";
+import { getBlog } from "@/sanity/sanity-queries";
 
 interface PageProps {
   params: {
@@ -10,21 +12,26 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const slug = params.slug;
-  const blogPost = await getBlog(slug);
+  const blogPost: Post = await sanityFetch({
+    query: getBlog,
+    tags: ["post"],
+    queryParams: { slug: params.slug },
+  });
 
   return (
     <div className="container my-10 h-screen">
       <header className="mb-6 items-center justify-between md:flex md:flex-row">
         <h1 className="text-5xl font-extrabold drop-shadow">{blogPost.title}</h1>
         <div className="flex items-center gap-2 md:mt-4">
-          <Image
-            width={50}
-            height={50}
-            src={`${blogPost.author?.image}?h=50&w=50&fit=crop`}
-            alt={`${blogPost.author?.name}'s profile image`}
-            className="rounded-full border shadow-sm"
-          />
+          {blogPost.author?.image && (
+            <Image
+              width={50}
+              height={50}
+              src={`${blogPost.author?.image}?h=50&w=50&fit=crop`}
+              alt={`${blogPost.author?.name}'s profile image`}
+              className="rounded-full border shadow-sm"
+            />
+          )}
           <span className="mr-2">{blogPost.author?.name}</span>
         </div>
       </header>
