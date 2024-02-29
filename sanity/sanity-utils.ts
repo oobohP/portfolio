@@ -8,7 +8,7 @@ const config: ClientConfig = {
   projectId,
   dataset,
   apiVersion,
-  useCdn: false // `false` if you want to ensure fresh data every load
+  useCdn: true // `false` if you want to ensure fresh data every load
 }
 
 const sanityClient = createClient(config)
