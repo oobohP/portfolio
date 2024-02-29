@@ -48,6 +48,17 @@ const PortableTextComponents = {
       </Table>
     ),
   },
+
+  marks: {
+    link: ({ children, value }: any) => {
+      const { href } = value;
+      return (
+        <a href={href} className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      );
+    },
+  },
 };
 
 export default PortableTextComponents;
