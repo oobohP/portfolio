@@ -2,13 +2,24 @@ import Image from "next/image";
 import { Post } from "@/lib/interfaces/Post";
 import { PortableText } from "@portabletext/react";
 import { sanityFetch } from "@/sanity/sanity-utils";
+import { getAllBlogs, getBlog } from "@/sanity/sanity-queries";
 import PortableTextComponents from "@/components/Blog/PortableTextComponents";
-import { getBlog } from "@/sanity/sanity-queries";
 
 interface PageProps {
   params: {
     slug: string;
   };
+}
+
+export async function generateStaticParams() {
+  const blogPosts: Post[] = await sanityFetch({
+    query: getAllBlogs,
+    tags: ["post"],
+  });
+
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+  }));
 }
 
 export default async function Page({ params }: PageProps) {
