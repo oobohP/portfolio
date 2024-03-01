@@ -1,11 +1,15 @@
-import { BlogHero } from "@/components/Blog/BlogHero";
+import { Suspense } from "react";
 import { Hero } from "@/components/Hero/Hero";
+import { BlogHero } from "@/components/Blog/BlogHero";
+import { BlogItemSkeleton } from "@/components/BlogItemSkeleton";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <BlogHero />
+      <Suspense fallback={<BlogItemSkeleton />}>
+        <BlogHero />
+      </Suspense>
     </main>
   );
 }

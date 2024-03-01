@@ -11,12 +11,12 @@ import {
 
 const PortableTextComponents = {
   block: {
-    h1: ({ children }: any) => <h1 className="my-4 text-3xl font-semibold">{children}</h1>,
-    h2: ({ children }: any) => <h2 className="my-4 text-2xl font-semibold">{children}</h2>,
+    h1: ({ children }: any) => <h1 className="mt-2 text-3xl font-semibold">{children}</h1>,
+    h2: ({ children }: any) => <h2 className="mt-2 text-2xl font-semibold">{children}</h2>,
   },
   types: {
     code: ({ value: { language, code, _key, filename } }: CodeHighLighter) => (
-      <div key={_key} className="my-4">
+      <div key={_key} className="mt-2">
         <p className="font-semibold">{filename}</p>
         <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
       </div>
@@ -47,17 +47,6 @@ const PortableTextComponents = {
         </TableBody>
       </Table>
     ),
-  },
-
-  marks: {
-    link: ({ children, value }: any) => {
-      const { href } = value;
-      return (
-        <a href={href} className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
-          {children}
-        </a>
-      );
-    },
   },
 };
 

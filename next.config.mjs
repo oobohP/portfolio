@@ -2,10 +2,22 @@
 const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,
-    domains: [
-      'cdn.sanity.io',
-      'sanity.io',
-      'placehold.co',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        pathname: '**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'sanity.io',
+        pathname: '**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        pathname: '**'
+      }
     ]
   }
 }
