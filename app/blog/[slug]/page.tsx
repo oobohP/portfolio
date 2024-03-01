@@ -30,7 +30,7 @@ export default async function Page({ params }: PageProps) {
   });
 
   return (
-    <div className="container my-10 h-screen">
+    <div className="container my-6 h-screen">
       <header className="mb-6 items-center justify-between md:flex md:flex-row">
         <h1 className="text-5xl font-extrabold drop-shadow">{blogPost.title}</h1>
         <div className="flex items-center gap-2 md:mt-4">
@@ -61,7 +61,7 @@ export default async function Page({ params }: PageProps) {
         />
       </div>
 
-      <div className="break-words text-lg tracking-tight">
+      <div className="break-words text-lg tracking-tight pb-6">
         <section>
           <PortableText value={blogPost.body} components={PortableTextComponents} />
         </section>
