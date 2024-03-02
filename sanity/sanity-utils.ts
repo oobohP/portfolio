@@ -1,4 +1,6 @@
 import { createClient, ClientConfig, QueryParams } from 'next-sanity'
+import imageUrlBuilder from '@sanity/image-url'
+
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
@@ -11,7 +13,7 @@ const config: ClientConfig = {
   useCdn: true // `false` if you want to ensure fresh data every load
 }
 
-const sanityClient = createClient(config)
+export const sanityClient = createClient(config)
 
 export async function sanityFetch<QueryResponse>({
   query,
@@ -26,4 +28,11 @@ export async function sanityFetch<QueryResponse>({
     cache: "force-cache",
     next: { tags },
   });
+}
+
+const builder = imageUrlBuilder(sanityClient);
+
+// Helper function to generate image URLs from Sanity image asset references
+export function buildSanityURL(source: string) {
+  return builder.image(source)
 }
