@@ -10,14 +10,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
+import React from "react";
 
 const PortableTextComponents = {
   marks: {
     link: ({ children, value }: any) => {
       const { href } = value;
       return (
-        <a href={href} className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+        <a
+          href={href}
+          className="text-blue-700 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {children}
         </a>
       );
@@ -27,6 +32,16 @@ const PortableTextComponents = {
     h1: ({ children }: any) => <h1 className="mt-2 text-3xl font-semibold">{children}</h1>,
     h2: ({ children }: any) => <h2 className="mt-2 text-2xl font-medium">{children}</h2>,
     h3: ({ children }: any) => <h2 className="mt-2 text-xl font-normal">{children}</h2>,
+    normal: ({ children }: any) => {
+      if (children.length === 1 && children[0] === "") {
+        return (
+          <div>
+            <br />
+          </div>
+        );
+      }
+      return <p>{children}</p>;
+    },
   },
   types: {
     code: ({ value: { language, code, _key, filename } }: CodeHighLighter) => (
@@ -36,9 +51,7 @@ const PortableTextComponents = {
       </div>
     ),
 
-    // Use the defined type for 'value'
-    image: ({value}: {value: SanityBlockImage}) => {
-      console.log(value)
+    image: ({ value }: { value: SanityBlockImage }) => {
       if (!value || !value.asset || !value.asset._ref) {
         return null;
       }
@@ -62,22 +75,16 @@ const PortableTextComponents = {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {rows.slice(1).map(
-            (
-              row: any,
-              rowIndex: number,
-            ) => (
-              <TableRow key={rowIndex}>
-                {row.cells.map((cell: any, cellIndex: number) => (
-                  <TableCell key={cellIndex}>{cell}</TableCell>
-                ))}
-              </TableRow>
-            ),
-          )}
+          {rows.slice(1).map((row: any, rowIndex: number) => (
+            <TableRow key={rowIndex}>
+              {row.cells.map((cell: any, cellIndex: number) => (
+                <TableCell key={cellIndex}>{cell}</TableCell>
+              ))}
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     ),
-
   },
 };
 
