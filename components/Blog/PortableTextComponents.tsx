@@ -10,9 +10,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import React from "react";
 
 const PortableTextComponents = {
+  list: {
+    bullet: ({children}: any) => {
+      return (
+        <ul className="list-disc list-inside ml-4">{children}</ul>
+      )
+    }
+  },
   marks: {
     link: ({ children, value }: any) => {
       const { href } = value;
