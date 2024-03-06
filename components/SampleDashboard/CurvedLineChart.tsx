@@ -61,6 +61,7 @@ function CurvedLineChart(props: HTMLAttributes<HTMLDivElement>) {
               borderRadius: "9999px",
             },
             container: {
+              color: "black",
               fontSize: "12px",
               textTransform: "capitalize",
               borderRadius: "6px",

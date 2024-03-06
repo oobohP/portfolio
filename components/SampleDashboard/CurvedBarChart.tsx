@@ -36,6 +36,7 @@ function BarChart(props: HTMLAttributes<HTMLDivElement>) {
             },
             container: {
               fontSize: "12px",
+              color: "black",
               textTransform: "capitalize",
               borderRadius: "6px",
             },

@@ -67,11 +67,15 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  :root {
+    --background-pattern: radial-gradient(#e5e7eb 0.6px, transparent 1px);
+  }
+  .dark {
+    --background-pattern: radial-gradient(#374151 0.6px, transparent 1px);
   }
   body {
-    @apply bg-background text-foreground;
+    background-image: var(--background-pattern);
+    background-size: 16px 16px;
   }
 }
 
