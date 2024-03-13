@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import { sanityFetch } from "@/sanity/sanity-utils";
 import { getAllBlogs, getBlog } from "@/sanity/sanity-queries";
 import PortableTextComponents from "@/components/Blog/PortableTextComponents";
+import EmailSignUpForm from "@/components/Blog/EmailSignUp/EmailSignUpForm";
 
 interface PageProps {
   params: {
@@ -66,6 +67,8 @@ export default async function Page({ params }: PageProps) {
           <PortableText value={blogPost.body} components={PortableTextComponents} />
         </section>
       </div>
+
+      <EmailSignUpForm />
     </div>
   );
 }
