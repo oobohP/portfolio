@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   if (!process.env.RESEND_AUDIENCE_ID) { throw new Error('No audience ID found') }
 
   try {
-    resend.contacts.create({
+    await resend.contacts.create({
       email: email,
       unsubscribed: false,
       audienceId: process.env.RESEND_AUDIENCE_ID
