@@ -1,25 +1,28 @@
-import { useState } from 'react'; // Only useState is needed
+import { useState } from 'react';
 
-export function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
-    // Initialize directly within useState
+type SetValue<T> = (value: T | ((val: T) => T)) => void;
+
+export function useLocalStorage<T>(key: string, initialValue: T): [T, SetValue<T>] {
+  const [storedValue, setStoredValue] = useState<T>(() => {
     if (typeof window !== 'undefined') {
       try {
-        const item = localStorage.getItem(key);
-        return item ? JSON.parse(item) : initialValue;
+        const item = window.localStorage.getItem(key);
+        return item ? JSON.parse(item) as T : initialValue;
       } catch (error) {
         console.error(error);
         return initialValue;
       }
+    } else {
+      return initialValue;
     }
   });
 
-  const setValue = (value) => {
+  const setValue: SetValue<T> = (value) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
-      if (typeof window !== 'undefined') { // Check within setValue
-        localStorage.setItem(key, JSON.stringify(valueToStore));
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }
     } catch (error) {
       console.error(error);

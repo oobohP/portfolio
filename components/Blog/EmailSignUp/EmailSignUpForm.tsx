@@ -3,16 +3,24 @@ import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import {useLocalStorage} from "@/lib/hooks/useLocalStorage";
 
+interface EmailSubmitEvent extends React.FormEvent<HTMLFormElement> {
+  target: HTMLFormElement & {
+    email: {
+      value: string;
+    };
+  };
+}
+
 const EmailSignUpForm = () => {
   const [isClient, setIsClient] = useState(false);
-  const [emailSubmitted, setEmailSubmitted] = useLocalStorage("emailSubmitted", "false");
-  const [dismissedStorage, setDismissedStorage] = useLocalStorage("signupBoxDismissed", null);
+  const [emailSubmitted, setEmailSubmitted] = useLocalStorage<String>("emailSubmitted", "false");
+  const [dismissedStorage, setDismissedStorage] = useLocalStorage<Number | null>("signupBoxDismissed", null);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const handleEmailSubmit = async (event) => {
+  const handleEmailSubmit = async (event: EmailSubmitEvent) => {
     event.preventDefault();
     const email = event.target.email.value;
 
@@ -39,7 +47,7 @@ const EmailSignUpForm = () => {
   };
 
   // Render null on the server and during the initial render on the client
-  // This ensures that the server-rendered content matches the initial client-rendered content
+  // This ensures that the server-rendered content matches the initial client-rendered content to prevent hydration issues
   if (!isClient || !shouldShowSignupBox() || emailSubmitted === "true") {
     return null;
   }
