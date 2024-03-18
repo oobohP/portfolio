@@ -1,13 +1,12 @@
 'use client'
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
-import {useLocalStorage} from "@/lib/hooks/useLocalStorage";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
 
 interface EmailSubmitEvent extends React.FormEvent<HTMLFormElement> {
   target: HTMLFormElement & {
-    email: {
-      value: string;
-    };
+    email: { value: string; };
+    name: { value: string; };
   };
 }
 
@@ -23,6 +22,9 @@ const EmailSignUpForm = () => {
   const handleEmailSubmit = async (event: EmailSubmitEvent) => {
     event.preventDefault();
     const email = event.target.email.value;
+    const name = event.target.name.value;
+
+    if (name) return
 
     try {
       const response = await fetch("/api/subscribe", {
@@ -46,8 +48,6 @@ const EmailSignUpForm = () => {
     return !dismissedStorage || Date.now() - Number(dismissedStorage) > dismissalThreshold;
   };
 
-  // Render null on the server and during the initial render on the client
-  // This ensures that the server-rendered content matches the initial client-rendered content to prevent hydration issues
   if (!isClient || !shouldShowSignupBox() || emailSubmitted === "true") {
     return null;
   }
@@ -66,6 +66,10 @@ const EmailSignUpForm = () => {
             required
             className="bg-white text-gray-900 dark:bg-gray-700 dark:text-gray-200"
           />
+          <div style={{ display: 'none' }}>
+            <label>Fill out your name</label>
+            <input type="text" name="name" tabIndex={-1} />
+          </div>
           <button
             type="submit"
             className="mt-3 w-full rounded-md bg-indigo-600 py-2 font-semibold text-white transition duration-200 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
