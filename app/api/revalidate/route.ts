@@ -18,6 +18,20 @@ export async function POST(req: NextRequest) {
     }
 
     revalidateTag(body._type);
+
+    const blogData = {
+      blogTitle: body.resultBody.title,
+      blogExcerpt: body.resultBody.subtitle,
+      slug: body.resultBody.slug?.current
+    }
+
+    await fetch('https://staging.stevenly.dev/api/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(blogData)
+    });
     console.log(body)
     console.log('Revalidated', body._type, 'at', Date.now());
     return NextResponse.json({

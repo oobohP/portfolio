@@ -3,35 +3,35 @@ import { EmailTemplate } from '@/components/EmailTemplate';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST() {
+export async function POST(req: Request) {
   try {
-    const response = await resend.contacts.list({ audienceId: process.env.RESEND_AUDIENCE_ID || '' });
+    const { blogTitle, blogExcerpt, slug } = await req.json(); // Expecting data in the request body
 
+    const response = await resend.contacts.list({ audienceId: process.env.RESEND_AUDIENCE_ID || '' });
     if (!response.data || !response.data.data) {
       console.error('No Contacts found in audiences', response)
       return new Response(JSON.stringify({ error: 'No contacts found' }), { status: 404 });
     }
 
-    const contacts = response.data?.data;
+    const contacts = response.data.data;
 
-    // Map each contact to an email template object
     const emailsToSend = contacts.map(contact => {
       const emailContent = EmailTemplate({
-        firstName: contact.email,
-        blogTitle: 'Hello World',
-        blogExcerpt: 'This is a test email 2',
-        blogUrl: 'https://resend.dev'
+        firstName: contact.first_name || 'Subscriber',
+        blogTitle: blogTitle,
+        blogExcerpt: blogExcerpt,
+        blogUrl: `https://stevenly.dev/blog/${slug}`
       });
 
       return {
         from: 'Steven <sly@stevenly.dev>',
         to: contact.email,
-        subject: 'Test Email Batch 2',
+        subject: `New Blog Post: ${blogTitle}`,
         react: emailContent || '',
       };
     });
 
-    const data = await resend.batch.send(emailsToSend);
+    await resend.batch.send(emailsToSend);
     return new Response(JSON.stringify({ message: 'Emails sent' }), { status: 200 });
   } catch (error) {
     console.error('Error sending emails', error);
