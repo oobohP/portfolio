@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const { blogTitle, blogExcerpt, slug } = await req.json(); // Expecting data in the request body
+    const { blogTitle, blogExcerpt, slug, mainImage} = await req.json(); // Expecting data in the request body
 
     const response = await resend.contacts.list({ audienceId: process.env.RESEND_AUDIENCE_ID || '' });
     if (!response.data || !response.data.data) {
@@ -20,7 +20,8 @@ export async function POST(req: Request) {
         firstName: contact.email || 'Subscriber',
         blogTitle: blogTitle,
         blogExcerpt: blogExcerpt,
-        blogUrl: `https://stevenly.dev/blog/${slug}`
+        blogUrl: `https://stevenly.dev/blog/${slug}`,
+        mainImage: mainImage
       });
 
       return {

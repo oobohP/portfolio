@@ -40,6 +40,8 @@ const EmailSignUpForm = () => {
       console.error(error);
     }
 
+    console.log(email)
+    console.log(name)
     setDismissedStorage(Date.now());
   };
 

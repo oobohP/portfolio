@@ -10,8 +10,14 @@ interface WebhookBody {
   };
   title: string;
   subtitle: string;
+  mainImage?: {
+    _type: 'image';
+    asset: {
+      _type: 'reference';
+      _ref: string;
+    };
+  };
 }
-
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,7 +27,7 @@ export async function POST(req: NextRequest) {
       return new Response("Invalid Signature", { status: 401 });
     }
 
-    if (!body?._type || !body.slug?.current) {
+    if (!body?._type || !body.slug?.current || !body.subtitle || !body.mainImage) {
       return new Response("Bad Request", { status: 400 });
     }
 
@@ -30,7 +36,8 @@ export async function POST(req: NextRequest) {
     const blogData = {
       blogTitle: body.title,
       blogExcerpt: body.subtitle,
-      slug: body.slug.current
+      slug: body.slug.current,
+      mainImage: body.mainImage
     };
 
     await fetch('https://development-portfolio-git-feature-add-email-on-sanity-phobo.vercel.app/api/send', {
@@ -42,7 +49,7 @@ export async function POST(req: NextRequest) {
     });
 
     console.log(body)
-    console.log('Revalidated', body._type, 'at', Date.now());
+    console.log('Revalidated', body._type, 'and email sent at', Date.now());
     return NextResponse.json({
       status: 200,
       revalidated: true,
