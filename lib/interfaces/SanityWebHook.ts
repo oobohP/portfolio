@@ -13,4 +13,6 @@ interface SanityWebhookBody {
       _ref: string;
     };
   };
+  _createdAt: string;
+  _updatedAt: string;
 }
