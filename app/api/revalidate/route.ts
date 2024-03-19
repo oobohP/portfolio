@@ -4,10 +4,7 @@ import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { body, isValidSignature } = await parseBody<{
-      _type: string;
-      slug?: string | undefined;
-    }>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET);
+    const { body, isValidSignature } = await parseBody<SanityWebhookBody>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET);
 
     if (!isValidSignature) {
       return new Response("Invalid Signature", { status: 401 });
@@ -18,8 +15,30 @@ export async function POST(req: NextRequest) {
     }
 
     revalidateTag(body._type);
+
+    if (new Date(body._createdAt).getTime() === new Date(body._updatedAt).getTime()) {
+      try {
+        const blogData = {
+          blogTitle: body.title,
+          blogExcerpt: body.subtitle,
+          slug: body.slug.current,
+          mainImage: body.mainImage
+        };
+
+        await fetch('https://staging.stevenly.dev/api/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(blogData)
+        });
+      } catch (error) {
+        console.error('Error sending emails', error);
+      }
+    }
+
     console.log(body)
-    console.log('Revalidated', body._type, 'at', Date.now());
+    console.log('Revalidated', body._type, 'and email sent at', Date.now());
     return NextResponse.json({
       status: 200,
       revalidated: true,

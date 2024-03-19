@@ -1,15 +1,14 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { buildSanityURL } from "@/sanity/sanity-utils";
 import { CodeHighLighter } from "@/lib/interfaces/CodeHighLighter";
 import { SanityBlockImage } from "@/lib/interfaces/SanityBlockImage";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
+import ruby from 'react-syntax-highlighter/dist/esm/languages/hljs/ruby';
+import { docco} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+SyntaxHighlighter.registerLanguage('ruby', ruby);
+SyntaxHighlighter.registerLanguage('javascript', js);
 
 const PortableTextComponents = {
   list: {
@@ -25,7 +24,7 @@ const PortableTextComponents = {
       return (
         <a
           href={href}
-          className="text-blue-700 hover:underline"
+          className="text-blue-500 hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -53,7 +52,7 @@ const PortableTextComponents = {
     code: ({ value: { language, code, _key, filename } }: CodeHighLighter) => (
       <div key={_key} className="mt-2">
         <p className="font-semibold">{filename}</p>
-        <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
+        <SyntaxHighlighter language={language} style={docco}>{code}</SyntaxHighlighter>
       </div>
     ),
 
