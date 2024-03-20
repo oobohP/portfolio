@@ -6,13 +6,7 @@ interface SanityWebhookBody {
   };
   title: string;
   subtitle: string;
-  mainImage?: {
-    _type: 'image';
-    asset: {
-      _type: 'reference';
-      _ref: string;
-    };
-  };
+  mainImage?: string;
   _createdAt: string;
   _updatedAt: string;
 }
