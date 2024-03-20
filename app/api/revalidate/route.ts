@@ -17,27 +17,6 @@ export async function POST(req: NextRequest) {
 
     revalidateTag(body._type);
 
-    // if (new Date(body._createdAt).getTime() === new Date(body._updatedAt).getTime()) {
-    //   try {
-    //     const blogData = {
-    //       blogTitle: body.title,
-    //       blogExcerpt: body.subtitle,
-    //       slug: body.slug.current,
-    //       mainImage: body.mainImage
-    //     };
-
-    //     await fetch('https://staging.stevenly.dev/api/send', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(blogData)
-    //     });
-    //   } catch (error) {
-    //     console.error('Error sending emails', error);
-    //   }
-    // }
-
     if (new Date(body._createdAt).getTime() === new Date(body._updatedAt).getTime() && body.subtitle && body.mainImage) {
       const blogData = {
         blogTitle: body.title,
@@ -49,7 +28,7 @@ export async function POST(req: NextRequest) {
       await sendEmail(blogData);
     }
 
-    console.log(body)
+    console.log('Response body: ', body)
     console.log('Revalidated', body._type, 'and email sent at', Date.now());
     return NextResponse.json({
       status: 200,
