@@ -1,7 +1,6 @@
-## Development Portfolio application built on NextJS
-
-### This portfolio has a 100% Google Lighthouse Score
-![Lighthouse](https://github.com/oobohP/portfolio/blob/master/public/lighthouse.png?raw=true)
+## Development Portfolio Blog application built on NextJS
+My Development Portfolio that utilizes a Headless CMS for content, and an Email subscription service for new Technical Blogs that are added to the CMS. <br>
+Here you can take a peek at how I handle on demand **Cache Revalidation**, **Incremental Site Regeneration**, and other development techniques that you can find useful.
 
 ## Getting Started
 First, run the development server:
@@ -20,10 +19,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Embedded Sanity CMS
 
-### This portfolio uses [Sanity.io's Content Management System](https://www.sanity.io/) to access this part in the portfolio you will need two environment variables (see example env file)<br>
+### This portfolio uses [Sanity.io's Content Management System](https://www.sanity.io/) to access this part in the portfolio you will need three environment variables (see example env file)<br>
 - Your [Sanity Project ID](https://www.sanity.io/manage) after you have created an account logged in and created a project <br>
 - Your Dataset Title which can also be found on the same dashboard as your Sanity Project ID.
-<!-- TODO: ADD LINK TO BLOG WHERE YOU WRITE ABOUT HOW TO SET UP NEXTJS + SANITY HEADLESS CMS-->
+- Your Sanity Webhook key which is also found in your Sanity's Project Dashboard
+
+## Resend Email Client
+### This Portfolio utilizes an email service [Resend](https://resend.com/) which is a wrapper on AWS's SES to send out emails whenever a new Blog has been posted for subscribed users (see example env file)<br>
+- Your Resend [API Key](https://resend.com/api-keys) which can be found here after you create an account.
+- Your Resend [AudienceID](https://resend.com/audiences/)
 
 ## Socials
 If you would like to connect please feel to reach out to me on Linkedin
